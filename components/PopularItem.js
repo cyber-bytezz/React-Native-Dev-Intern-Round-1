@@ -9,21 +9,20 @@ export default function PopularItem({ item }) {
 
       {/* Details below the image */}
       <View style={styles.infoContainer}>
-        <Text style={styles.itemName}>{item.name}</Text>
+        {/* Food name and distance in the same row */}
+        <View style={styles.row}>
+          <Text style={styles.itemName}>{item.name}</Text>
+          <Text style={styles.itemDistance}>{item.distance}</Text>
+        </View>
         <Text style={styles.restaurant}>{item.restaurant}</Text>
 
         {/* Rating and Price Row */}
         <View style={styles.row}>
-          {/* Rating on the left */}
           <Text style={styles.itemRating}>⭐ {item.rating} (941 Ratings)</Text>
         </View>
 
-        {/* Distance and Price Container */}
-        <View style={styles.distanceAndPriceContainer}>
-          {/* Distance Text */}
-          <Text style={styles.itemDistance}>{item.distance}</Text>
-
-          {/* Price Button */}
+        {/* Price Button */}
+        <View style={styles.priceButtonContainer}>
           <TouchableOpacity style={styles.priceButton}>
             <Text style={styles.priceText}>{item.price}</Text>
           </TouchableOpacity>
@@ -36,63 +35,69 @@ export default function PopularItem({ item }) {
 const styles = StyleSheet.create({
   popularItemContainer: {
     backgroundColor: '#fff',
-    borderRadius: 15,
+    borderRadius: 10,  // Smaller border radius for the card
     padding: 8,
-    marginRight: 10,  // Reduce margin to make more space for multiple cards
-    width: 200,  // Fixed width for consistency
+    marginRight: 12, 
+    width: 200,  // Smaller width for compact cards
     shadowColor: '#000',
     shadowOpacity: 0.1,
     shadowRadius: 4,
     elevation: 2,
-    flexShrink: 1,  // Ensure the card shrinks properly in the container
+    position: 'relative',  // Allow absolute positioning inside
   },
   popularImage: {
     width: '100%',
-    height: 90,  // Decreased height for the image
-    borderRadius: 10,
+    height: 90, 
+    borderRadius: 8,
     marginBottom: 8,
   },
   infoContainer: {
     paddingHorizontal: 5,
   },
-  itemName: {
-    fontSize: 16,
-    fontWeight: 'bold',
-    marginBottom: 2,  // Reduced space between name and other details
-  },
-  restaurant: {
-    fontSize: 12,
-    color: '#999',
-    marginBottom: 2,  // Reduced margin for better alignment
-  },
   row: {
     flexDirection: 'row',
-    justifyContent: 'space-between',
+    justifyContent: 'space-between', 
     alignItems: 'center',
+    marginBottom: 6,
+  },
+  itemName: {
+    fontSize: 14, 
+    fontWeight: 'bold',
+  },
+  itemDistance: {
+    fontSize: 11, 
+    color: '#666',
+  },
+  restaurant: {
+    fontSize: 11, 
+    color: '#999',
     marginBottom: 4,
   },
   itemRating: {
-    fontSize: 12,
+    fontSize: 11, 
     color: '#666',
   },
-  distanceAndPriceContainer: {
-    alignItems: 'flex-end',  // Align distance and price button to the right
-  },
-  itemDistance: {
-    fontSize: 12,
-    color: '#666',
-    marginBottom: 4,  // Add space between distance and price button
-    textAlign: 'right',  // Align the distance text to the right
+  priceButtonContainer: {
+    flexDirection: 'row',
+    justifyContent: 'flex-end',
+    position: 'absolute',  // Position the button absolutely inside the card
+    bottom: 0,  // Align to the bottom
+    right: 0,  // Align to the right
+    marginRight: -8,  // Negative margin to align it outside the padding
+    marginBottom: -8,  // Negative margin for bottom alignment
   },
   priceButton: {
-    backgroundColor: '#f04d22',  // Red background for the price button
-    borderRadius: 8,
+    backgroundColor: '#f04d22',
+    borderTopLeftRadius: 10,  // Rounded top-left corner
+    borderBottomRightRadius: 10,  // Keep the bottom-right rounded for consistency
     paddingVertical: 5,
-    paddingHorizontal: 15,
+    paddingHorizontal: 15, 
+    elevation: 3,  // Slight shadow for elevated look
   },
   priceText: {
     color: '#fff',
-    fontSize: 16,
+    fontSize: 14, 
     fontWeight: 'bold',
   },
 });
+
