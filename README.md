@@ -10,6 +10,10 @@ This is a React Native mobile application built for Aforro Groceries as part of 
 - **Interactive UI**: Includes navigation, clickable items, and smooth transitions.
 
 ## Demo
+
+### YouTube Video
+[Watch the demo on YouTube](https://www.youtube.com/watch?v=DqwY0DcqYzg)
+
 <p align="center">
   <img src="https://github.com/user-attachments/assets/c23216cc-7f55-48aa-8fd2-486cb41bc537" alt="App Screenshot" width="200"/>
 </p>
